@@ -113,3 +113,60 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+.why-choose, .summary-quote, .product-links, .quick-links {
+  padding: 3rem 1rem;
+  background: #f5f5f5;
+  margin-top: 2rem;
+}
+
+.why-choose h2, .product-links h2, .quick-links h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c5e3a;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.features-list,
+.product-list,
+.quick-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.features-list li,
+.product-list li,
+.quick-list li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.summary-quote h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #387447;
+  margin-bottom: 0.5rem;
+}
+
+.summary-quote p {
+  text-align: center;
+  font-size: 1rem;
+}
+.why-choose h2,
+.product-links h2,
+.quick-links h2,
+.summary-quote h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2c5e3a;
+}
