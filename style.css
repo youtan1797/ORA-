@@ -1,1 +1,83 @@
+/* style.css — Aetherial Ora Theme */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f4;
+  color: #2d2d2d;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header {
+  background: #dff2e1;
+  border-bottom: 2px solid #b7e5b0;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #387447;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #387447;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #f0fff0, #e8fbe8);
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #2c5e3a;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #3a3a3a;
+}
+
+.cta {
+  padding: 12px 24px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: #3f9440;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  background: #e8fce9;
+  font-size: 0.9rem;
+  color: #555;
+}
