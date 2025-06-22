@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHERIAL ORA | AI Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #2196F3;
+            --accent: #FF9800;
+            --earth: #795548;
+            --snow: #f8f9fa;
+            --sky: #E3F2FD;
+            --text: #333;
+            --text-light: #777;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #E3F2FD 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #F57C00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: 80px 0;
+            background-color: white;
+            border-radius: 20px;
+            margin: 0 20px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .vision-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .vision-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .vision-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+        }
+
+        .vision-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .vision-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .vision-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 120px;
+        }
+
+        .vision-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .vision-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .vision-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .tool-header {
+            padding: 25px;
+            background: linear-gradient(to right, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+        }
+
+        .tool-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tool-body {
+            padding: 25px;
+        }
+
+        .tool-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .tool-demo {
+            background: var(--sky);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .tool-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #0b7dda;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(to bottom, var(--sky) 0%, white 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            z-index: 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-seedling logo-icon"></i>
+                <div>
+                    <div class="logo-text">AETHERIAL ORA</div>
+                    <div class="logo-tagline">Cultivating Innovation, Healing the Planet</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#vision"><i class="fas fa-eye"></i> Vision</a></li>
+                    <li><a href="#tools"><i class="fas fa-tools"></i> AI Tools</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI Solutions for a Sustainable Future</h1>
+            <p>Harnessing artificial intelligence to empower agriculture, enhance media, and heal our planet. Inspired by the Himalayas, crafted for Earth.</p>
+            <a href="#tools" class="cta-button">Explore Our Suite <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision" id="vision">
+        <div class="container vision-content">
+            <div class="vision-text">
+                <h2>Our Himalayan-Inspired Vision</h2>
+                <p>At AETHERIAL ORA, we blend cutting-edge AI technology with the wisdom of nature. Based in the majestic landscapes of Leh, we're committed to sustainable practices and planet healing.</p>
+                <p>Our fully recyclable packaging and eco-conscious development processes reflect our dedication to the environment. Like sprouts pushing through soil, we're growing solutions for a better tomorrow.</p>
+                
+                <div class="vision-icons">
+                    <div class="vision-icon">
+                        <i class="fas fa-mountain"></i>
+                        <span>Himalayan Inspired</span>
+                    </div>
+                    <div class="vision-icon">
+                        <i class="fas fa-recycle"></i>
+                        <span>100% Recyclable</span>
+                    </div>
+                    <div class="vision-icon">
+                        <i class="fas fa-seedling"></i>
+                        <span>Sprout Philosophy</span>
+                    </div>
+                    <div class="vision-icon">
+                        <i class="fas fa-globe-asia"></i>
+                        <span>East Culture</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vision-image">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Himalayan Landscape">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI-Powered Tools</h2>
+                <p>Our comprehensive suite of AI solutions designed to empower your creative and technical workflows</p>
+            </div>
+
+            <div class="tools-grid">
+                <!-- Text to Code Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-code"></i> Text to Code</h3>
+                        <p>Convert natural language to frontend code</p>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">Describe your UI in plain English and instantly generate production-ready HTML, CSS, and JavaScript code.</p>
+                        <div class="tool-demo">
+                            <span style="color: #e06c75;">// Input:</span> "Create a green button with rounded corners that says 'Sign Up'"<br>
+                            <span style="color: #61afef;">&lt;!-- Output --&gt;</span><br>
+                            &lt;button style="background-color: #4CAF50; color: white; border-radius: 25px; padding: 10px 20px; border: none;"&gt;Sign Up&lt;/button&gt;
+                        </div>
+                        <div class="tool-actions">
+                            <button class="btn btn-primary"><i class="fas fa-bolt"></i> Try Now</button>
+                            <button class="btn btn-secondary"><i class="fas fa-book"></i> Docs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Enhancement Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-video"></i> Video Enhancement</h3>
+                        <p>Transform low-quality video to 4K</p>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">Breathe new life into old footage with our AI-powered upscaling, noise reduction, and stabilization technology.</p>
+                        <div class="tool-demo">
+                            <span style="color: #e06c75;">Input:</span> 480p video, low light, shaky footage<br>
+                            <span style="color: #98c379;">Process:</span> Upscale 4x • Noise reduction • Stabilization • HDR enhancement<br>
+                            <span style="color: #61afef;">Output:</span> Crystal clear 4K video with vibrant colors
+                        </div>
+                        <div class="tool-actions">
+                            <button class="btn btn-primary"><i class="fas fa-bolt"></i> Try Now</button>
+                            <button class="btn btn-secondary"><i class="fas fa-book"></i> Docs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Enhancement Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-image"></i> Image Enhancement</h3>
+                        <p>Convert low-quality images to high-resolution</p>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">Enhance and upscale images while preserving important details and textures.</p>
+                        <div class="tool-demo">
+                            <span style="color: #e06c75;">Input:</span> 800x600px, blurry, low contrast image<br>
+                            <span style="color: #98c379;">Process:</span> 4x Upscaling • Detail reconstruction • Color correction • Artifact removal<br>
+                            <span style="color: #61afef;">Output:</span> Sharp 3200x2400px image with vibrant colors
+                        </div>
+                        <div class="tool-actions">
+                            <button class="btn btn-primary"><i class="fas fa-bolt"></i> Try Now</button>
+                            <button class="btn btn-secondary"><i class="fas fa-book"></i> Docs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose AETHERIAL ORA?</h2>
+                <p>Our commitment to excellence and sustainability sets us apart</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Conscious AI</h3>
+                    <p>Our AI models are optimized for minimal energy consumption, reducing carbon footprint while maximizing performance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Kaizen Philosophy</h3>
+                    <p>Continuous improvement is at our core. Our tools evolve daily with user feedback and technological advances.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sustainable Packaging</h3>
+                    <p>100% biodegradable and recyclable materials that return to the earth, leaving no trace behind.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Himalayan Inspired</h3>
+                    <p>Our designs draw inspiration from the resilience and beauty of the Himalayas and Eastern cultures.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Planet Healing</h3>
+                    <p>5% of all profits support reforestation and environmental conservation projects in the Himalayas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Community Focused</h3>
+                    <p>We work directly with Leh communities to create sustainable economic opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AETHERIAL ORA</h3>
+                    <p>Harnessing AI for sustainable innovation, inspired by the Himalayas and dedicated to healing our planet.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Our Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-code"></i> Text to Code</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Video Enhancement</a></li>
+                        <li><a href="#"><i class="fas fa-image"></i> Image Enhancement</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Agri-Analytics</a></li>
+                        <li><a href="#"><i class="fas fa-cloud"></i> Climate Modeling</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#vision"><i class="fas fa-eye"></i> Our Vision</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Documentation</a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> Sustainability Report</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Partnerships</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Leh, Ladakh, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@aetherialora.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9876543210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Plant a tree with every purchase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 AETHERIAL ORA. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #e06c75;"></i> in the Himalayas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for tool cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.tool-card, .feature-card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            observer.observe(card);
+        });
+
+        // Vision section animation
+        const visionSection = document.querySelector('.vision');
+        visionSection.style.opacity = "0";
+        visionSection.style.transition = "opacity 1s ease";
+        
+        const visionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    visionSection.style.opacity = "1";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        visionObserver.observe(visionSection);
+    </script>
+</body>
+</html>
