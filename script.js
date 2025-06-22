@@ -9,3 +9,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Scroll-triggered reveal animation
+const revealItems = document.querySelectorAll('.card, .vision-icons li');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+    }
+  });
+}, { threshold: 0.1 });
+
+revealItems.forEach(item => observer.observe(item));
+
+// Ripple effect on CTA buttons
+document.querySelectorAll('.cta-button').forEach(button => {
+  button.addEventListener('click', function (e) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 500);
+  });
+});
