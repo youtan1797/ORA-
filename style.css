@@ -257,3 +257,38 @@ footer {
 .section li {
   margin-bottom: 0.5rem;
 }
+#menu-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2.2rem;
+  color: #4c743c;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+#menu-toggle:hover {
+  transform: scale(1.2);
+}
+
+#corner-menu {
+  position: fixed;
+  top: 3.5rem;
+  left: 1rem;
+  background: #f4f9f4;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+#corner-menu a {
+  color: #3a5a40;
+  text-decoration: none;
+  margin: 0.3rem 0;
+  font-weight: bold;
+}
+#corner-menu a:hover {
+  text-decoration: underline;
+}
