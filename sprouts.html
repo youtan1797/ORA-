@@ -31,7 +31,8 @@
   </header>
 
   <section class="sprout-grid">
-   
+   <div id="sproutsContent" class="fade-in">
+
 </div>
 <h2>🌱 Grown in Ladakh. With Heart. With Honor.</h2>
 <p><strong>PURE & SACRED</strong><br>
@@ -71,15 +72,26 @@ Together, we return to the rhythm of Earth.</p>
   <strong>under the Ora ethos</strong>
 </div>
 
-      </div>
-    </div>
-  </section>
+   </div> <!-- closes #sproutsContent -->
+</section>
 
   <footer>
     <div class="container">
       <p>&copy; 2025 AETHERIAL ORA — Sprouting Wellness, Naturally</p>
     </div>
   </footer>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  const section = document.getElementById('sproutsContent');
+  if (section) observer.observe(section);
+</script>
 
 </body>
 </html>
