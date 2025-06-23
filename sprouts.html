@@ -610,5 +610,18 @@
             });
         });
     </script>
+<div id="menu-toggle">&#8226;</div>
+<div id="corner-menu">
+  <a href="sprouts.html" target="_blank">Sprouts</a>
+  <a href="nutration.html" target="_blank">Nutration</a>
+  <a href="packaging.html" target="_blank">Packaging</a>
+  <a href="update.html" target="_blank">Update</a>
+</div>
+<script>
+  document.getElementById("menu-toggle").addEventListener("click", function () {
+    const menu = document.getElementById("corner-menu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  });
+</script>
 </body>
 </html>
