@@ -292,3 +292,21 @@ footer {
 #corner-menu a:hover {
   text-decoration: underline;
 }
+.upcoming-products {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+.upcoming-products li {
+  margin: 0.5rem 0;
+  font-weight: bold;
+  color: #3a5a40;
+  display: flex;
+  align-items: center;
+}
+.upcoming-products li::before {
+  content: "•";
+  color: #a3c585;
+  margin-right: 0.6rem;
+  font-size: 1.4rem;
+}
