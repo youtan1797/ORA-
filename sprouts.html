@@ -606,5 +606,20 @@
     menu.style.left = (menu.style.left === '0px') ? '-220px' : '0px';
   });
 </script>
+  <!-- Your other content... -->
+
+  <!-- 🌿 Sprouts Menu Script -->
+  <script>
+    const toggle = document.getElementById('sprouts-toggle');
+    const menu = document.getElementById('sprouts-submenu');
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      const isOpen = menu.style.left === '0px';
+      menu.style.left = isOpen ? '-220px' : '0px';
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
