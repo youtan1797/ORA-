@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gang Lung Dangmé Longtsa - Pure Valley Mountain Sprouts</title>
-   <link rel="stylesheet" href="assets/css/style.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gang Lung Dangmé Longtsa</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 🌱 Sprouts Menu Button -->
+  <button id="sprouts-toggle" aria-label="Open Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- 🌿 Sprouts Sidebar Menu -->
+  <div id="sprouts-submenu">
+    <a href="sprouts.html">Sprouts Overview</a>
+    <a href="nutration.html">Nutration</a>
+    <a href="packaging.html">Packaging</a>
+    <a href="khambir.html">Khambir</a>
+  </div>
+
+  <!-- 🌒 Gray Background Overlay -->
+  <div id="menu-overlay"></div>
+
         body {
             background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
             color: #333;
@@ -639,5 +654,23 @@
     overlay.classList.remove('active');
   });
 </script>
+  const toggle = document.getElementById('sprouts-toggle');
+  const menu = document.getElementById('sprouts-submenu');
+  const overlay = document.getElementById('menu-overlay');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.style.left === '0px';
+    menu.style.left = isOpen ? '-220px' : '0px';
+    toggle.classList.toggle('open');
+    overlay.classList.toggle('active');
+  });
+
+  overlay.addEventListener('click', () => {
+    menu.style.left = '-220px';
+    toggle.classList.remove('open');
+    overlay.classList.remove('active');
+  });
+</script>
 </body>
 </html>
+
