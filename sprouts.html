@@ -587,41 +587,25 @@
             &copy; 2023 Pure Valley Mountain Sprouts • Ladakh-Grown • Hand-Tended • Solar-Washed • Wind-Blessed
         </div>
     </footer>
+<!-- 🌱 Hamburger Menu Toggle -->
+<div id="menu-toggle">&#9776;</div>
 
-    <script>
-        // Simple animation for cards when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.meaning-card, .principle-card, .symbol-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-        });
-    </script>
-<div id="menu-toggle">&#8226;</div>
-<div id="corner-menu">
-  <a href="sprouts.html" target="_blank">Sprouts</a>
-  <a href="nutration.html" target="_blank">Nutration</a>
-  <a href="packaging.html" target="_blank">Packaging</a>
-  <a href="update.html" target="_blank">Update</a>
+<!-- 🌿 Slide-In Menu -->
+<div id="side-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="khambir.html">Khambir</a>
+  <a href="sprouts.html">Sprouts</a>
+  <a href="contract.html">Contact</a>
 </div>
+
+<!-- 🍃 Slide Toggle Script -->
 <script>
-  document.getElementById("menu-toggle").addEventListener("click", function () {
-    const menu = document.getElementById("corner-menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('side-menu');
+  toggle.addEventListener('click', () => {
+    menu.style.left = (menu.style.left === '0px') ? '-250px' : '0px';
   });
-</script>
+</script>  
 </body>
 </html>
