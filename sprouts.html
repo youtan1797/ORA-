@@ -409,22 +409,25 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tibetan:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Sprouts Menu Button -->
+    <!-- 🌱 Sprouts Menu Button -->
 <button id="sprouts-toggle" aria-label="Open Menu">
   <span class="bar"></span>
   <span class="bar"></span>
   <span class="bar"></span>
 </button>
 
-<!-- Sidebar Menu -->
+<!-- 🌿 Sprouts Sidebar Menu -->
 <div id="sprouts-submenu">
   <a href="sprouts.html">Sprouts Overview</a>
   <a href="nutration.html">Nutration</a>
   <a href="packaging.html">Packaging</a>
-  <a href="seabuckthorn.html">Khambir</a>
+  <a href="khambir.html">Khambir</a>
 </div>
+
+<!-- 🌒 Gray Background Overlay -->
+<div id="menu-overlay"></div>
+</head>
+<body>
 <!-- Gray Overlay -->
  <div id="menu-overlay"></div>
     <!-- Header Section -->
@@ -614,28 +617,8 @@
   <a href="seabuckthorn.html">seabuckthorn</a>
 </div>
 
-<!-- 🍃 Sprouts Menu Script -->
-<script>
-  const toggle = document.getElementById('sprouts-menu-toggle');
-  const menu = document.getElementById('sprouts-submenu');
-  toggle.addEventListener('click', () => {
-    menu.style.left = (menu.style.left === '0px') ? '-220px' : '0px';
-  });
-</script>
-  <!-- Your other content... -->
-
   <!-- 🌿 Sprouts Menu Script -->
-  <script>
-    const toggle = document.getElementById('sprouts-toggle');
-    const menu = document.getElementById('sprouts-submenu');
-
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      const isOpen = menu.style.left === '0px';
-      menu.style.left = isOpen ? '-220px' : '0px';
-    });
-  </script>
-  <script>
+ <script>
   const toggle = document.getElementById('sprouts-toggle');
   const menu = document.getElementById('sprouts-submenu');
   const overlay = document.getElementById('menu-overlay');
