@@ -480,3 +480,25 @@ footer {
   z-index: 1001;
   transition: left 0.3s ease;
 }
+.menu {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  top: 60px;
+  background-color: var(--deep-green);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu li a {
+  color: white;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: var(--sun-gold);
+  color: black;
+}

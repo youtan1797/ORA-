@@ -23,7 +23,20 @@
             --deep-green: #2c4e36;
         }
         
-        body {
+         {
+            <body>
+  <nav class="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="menu" id="menu">
+      <li><a href="nutration.html" onclick="toggleMenu()">Nutration</a></li>
+      <li><a href="packaging.html" onclick="toggleMenu()">Packaging</a></li>
+      <li><a href="khambir.html" onclick="toggleMenu()">Khambir</a></li>
+      <li><a href="updates.html" onclick="toggleMenu()">Updates</a></li>
+    </ul>
+  </nav>
+  <!-- Your existing content continues here -->
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, var(--sky-blue) 0%, #ffffff 100%);
             color: #333;
@@ -388,8 +401,6 @@
             }
         }
     </style>
-</head>
-<body>
     <div class="sprout-animation" id="sproutAnimation"></div>
     
     <div class="overlay" id="overlay"></div>
@@ -560,4 +571,11 @@
             const headerBg = document.querySelector('.header-bg');
             const scrollPosition = window.pageYOffset;
             headerBg.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
-            
+            <script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
+</body>
+</html>
