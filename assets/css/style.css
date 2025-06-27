@@ -1,5 +1,24 @@
-/* style.css — Aetherial Ora Theme */
+/* ==========================================================================
+   Aetherial ORA – Complete style.css
+   Organized for multi-page site (index.html, sprouts.html, etc.)
+   ========================================================================== */
 
+/* ------------------------------
+   1. CSS Variables (Theme Colors)
+---------------------------------- */
+:root {
+  --earth-green: #5c7c46;
+  --mountain-blue: #8ab6d6;
+  --sky-blue: #d4e4f7;
+  --snow-white: #f8f9fa;
+  --sun-gold: #e9b949;
+  --stone-gray: #6c757d;
+  --deep-green: #2c4e36;
+}
+
+/* ------------------------------
+   2. Global Reset & Base
+---------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -7,39 +26,53 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f4;
-  color: #2d2d2d;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, #ffffff 100%);
+  color: #333;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 80px 20px;
 }
 
-header {
-  background: #dff2e1;
-  border-bottom: 2px solid #b7e5b0;
+/* ------------------------------
+   3. Headings & Typography
+---------------------------------- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--deep-green);
+  margin-bottom: 10px;
 }
 
-header h1 {
-  font-size: 2rem;
-  color: #387447;
+h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #2c5e3a;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-nav {
-  margin-top: 0.5rem;
+p {
+  margin-bottom: 12px;
 }
 
-nav a {
-  margin-right: 1rem;
+a {
   text-decoration: none;
-  color: #387447;
-  font-weight: bold;
+  color: var(--deep-green);
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   4. Hero & Call-to-Actions
+---------------------------------- */
 .hero {
   text-align: center;
   padding: 4rem 1rem;
@@ -58,34 +91,30 @@ nav a {
   color: #3a3a3a;
 }
 
-.cta {
+.cta,
+a.button {
+  display: inline-block;
   padding: 12px 24px;
   background: #4CAF50;
   color: white;
-  border: none;
-  text-decoration: none;
   border-radius: 30px;
   font-size: 1rem;
   transition: background 0.3s ease;
 }
 
-.cta:hover {
+.cta:hover,
+a.button:hover {
   background: #3f9440;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  background: #e8fce9;
-  font-size: 0.9rem;
-  color: #555;
-}
-/* Ripple effect styling */
+/* ------------------------------
+   5. Ripple Effect Button
+---------------------------------- */
 .cta-button {
   position: relative;
   overflow: hidden;
 }
+
 .cta-button .ripple {
   position: absolute;
   width: 100px;
@@ -98,31 +127,79 @@ footer {
   top: 50%;
   left: 50%;
 }
+
 @keyframes rippleAnim {
   from { transform: scale(0); opacity: 1; }
   to { transform: scale(2); opacity: 0; }
 }
 
-/* Scroll-reveal animation */
+/* ------------------------------
+   6. Page Sections & Utilities
+---------------------------------- */
+.section {
+  padding: 1.5rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section h2, .section h3 {
+  margin-bottom: 1rem;
+  color: #3a5a40;
+}
+
+.section ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.section li {
+  margin-bottom: 0.5rem;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #4c743c;
+  margin-top: 1.5rem;
+}
+
+/* ------------------------------
+   7. Footer
+---------------------------------- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  background: #e8fce9;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ------------------------------
+   8. Animated Cards / Scroll Reveal
+---------------------------------- */
 .card, .vision-icons li {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
+
 .revealed {
   opacity: 1;
   transform: translateY(0);
 }
-.why-choose, .summary-quote, .product-links, .quick-links {
+
+/* ------------------------------
+   9. Summary Blocks & Lists
+---------------------------------- */
+.why-choose,
+.summary-quote,
+.product-links,
+.quick-links {
   padding: 3rem 1rem;
   background: #f5f5f5;
   margin-top: 2rem;
-}
-
-.why-choose h2, .product-links h2, .quick-links h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #2c5e3a;
 }
 
 .intro {
@@ -148,83 +225,9 @@ footer {
   line-height: 1.6;
 }
 
-.summary-quote h3 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #387447;
-  margin-bottom: 0.5rem;
-}
-
-.summary-quote p {
-  text-align: center;
-  font-size: 1rem;
-}
-.why-choose h2,
-.product-links h2,
-.quick-links h2,
-.summary-quote h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #2c5e3a;
-}
-.subhead {
-  margin-top: 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: #387447;
-  text-align: center;
-}
-
-.wisdom-list {
-  list-style: none;
-  max-width: 800px;
-  margin: 1rem auto;
-  padding-left: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.section {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.section h2, .section h3 {
-  margin-bottom: 1rem;
-  color: #3a5a40;
-}
-
-.section ul {
-  padding-left: 1.2rem;
-  list-style-type: disc;
-}
-
-.quote {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #4c743c;
-  margin-top: 1.5rem;
-}
-
-
-.wisdom-list li {
-  margin: 0.5rem 0;
-  text-align: left;
-}
+/* ------------------------------
+   10. QR Box
+---------------------------------- */
 .qr-box {
   background: #f4f9f4;
   padding: 2rem;
@@ -240,76 +243,26 @@ footer {
   margin-top: 1rem;
   border-radius: 8px;
 }
-.section {
-  padding: 1.5rem 1rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-.section h3 {
-  color: #3a5a40;
-  margin-bottom: 0.8rem;
-}
-.section ul {
-  list-style-type: disc;
-  padding-left: 1.2rem;
-}
-.section li {
-  margin-bottom: 0.5rem;
-}
-#menu-toggle {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  font-size: 2.2rem;
-  color: #4c743c;
-  cursor: pointer;
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
-#menu-toggle:hover {
-  transform: scale(1.2);
+
+/* ------------------------------
+   11. Tibetan Script & Highlights
+---------------------------------- */
+.tibetan-script {
+  font-family: 'Noto Sans Tibetan', sans-serif;
+  font-size: 1.8rem;
+  color: var(--stone-gray);
+  margin: 10px 0;
+  display: block;
 }
 
-#corner-menu {
-  position: fixed;
-  top: 3.5rem;
-  left: 1rem;
-  background: #f4f9f4;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  display: none;
-  flex-direction: column;
-  z-index: 999;
-}
-#corner-menu a {
-  color: #3a5a40;
-  text-decoration: none;
-  margin: 0.3rem 0;
+.highlight {
+  color: var(--earth-green);
   font-weight: bold;
 }
-#corner-menu a:hover {
-  text-decoration: underline;
-}
-.upcoming-products {
-  list-style: none;
-  padding: 0;
-  font-size: 1.1rem;
-}
-.upcoming-products li {
-  margin: 0.5rem 0;
-  font-weight: bold;
-  color: #3a5a40;
-  display: flex;
-  align-items: center;
-}
-.upcoming-products li::before {
-  content: "•";
-  color: #a3c585;
-  margin-right: 0.6rem;
-  font-size: 1.4rem;
-}
+
+/* ------------------------------
+   12. Sprouts Page Only Styles 🌱
+---------------------------------- */
 #menu-toggle {
   position: fixed;
   top: 20px;
@@ -322,6 +275,11 @@ footer {
   cursor: pointer;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#menu-toggle:hover {
+  transform: scale(1.2);
 }
 
 #side-menu {
@@ -330,7 +288,7 @@ footer {
   left: -250px;
   width: 220px;
   height: 100%;
-  background: var(--cream);
+  background: var(--cream, #f4f9f4);
   box-shadow: 2px 0 12px rgba(0,0,0,0.1);
   padding-top: 60px;
   transition: left 0.3s ease;
@@ -350,147 +308,31 @@ footer {
   background-color: var(--earth-green);
   color: white;
 }
-/* RESET + COLORS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-:root {
-  --earth-green: #5c7c46;
-  --mountain-blue: #8ab6d6;
-  --sky-blue: #d4e4f7;
-  --snow-white: #f8f9fa;
-  --sun-gold: #e9b949;
-  --stone-gray: #6c757d;
-  --deep-green: #2c4e36;
-}
-
-/* BASE BODY */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, var(--sky-blue) 0%, #ffffff 100%);
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* NAVBAR HAMBURGER */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2000;
-}
-
-.menu-toggle {
-  font-size: 1.8rem;
-  color: var(--earth-green);
-  cursor: pointer;
-  padding: 10px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* SIDE MENU */
-.menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background: white;
-  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-  padding: 60px 20px;
-  z-index: 1500;
-  transition: left 0.3s ease;
+.upcoming-products {
   list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
 }
 
-.menu.active {
-  left: 0;
-}
-
-.menu li {
-  margin: 20px 0;
-}
-
-.menu a {
-  text-decoration: none;
-  color: var(--deep-green);
-  font-size: 1.2rem;
+.upcoming-products li {
+  margin: 0.5rem 0;
   font-weight: bold;
+  color: #3a5a40;
+  display: flex;
+  align-items: center;
 }
 
-/* OVERLAY */
-.menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1400;
+.upcoming-products li::before {
+  content: "•";
+  color: #a3c585;
+  margin-right: 0.6rem;
+  font-size: 1.4rem;
 }
 
-.menu-overlay.active {
-  display: block;
-}
-
-/* CONTAINER + TITLES */
-.container {
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: var(--deep-green);
-  margin-bottom: 10px;
-}
-
-.tagline {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--stone-gray);
-  margin-bottom: 30px;
-}
-
-/* TIBETAN SCRIPT */
-.tibetan-script {
-  font-family: 'Noto Sans Tibetan', sans-serif;
-  font-size: 1.8rem;
-  color: var(--stone-gray);
-  margin: 10px 0;
-  display: block;
-}
-
-/* HIGHLIGHTS */
-.highlight {
-  color: var(--earth-green);
-  font-weight: bold;
-}
-
-/* SPRINGY EFFECT EXAMPLE */
-.sprout-card {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.sprout-card:hover {
-  transform: translateY(-10px);
-}
-
-/* RESPONSIVE */
+/* ------------------------------
+   13. Mobile Responsive
+---------------------------------- */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -499,66 +341,8 @@ h1 {
   .menu {
     width: 80%;
   }
-}
-/* HAMBURGER MENU STYLES */
 
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2000;
-}
-
-.menu-toggle {
-  font-size: 1.8rem;
-  color: var(--earth-green);
-  cursor: pointer;
-  padding: 10px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background: white;
-  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-  padding: 60px 20px;
-  z-index: 1500;
-  transition: left 0.3s ease;
-  list-style: none;
-}
-
-.menu.active {
-  left: 0;
-}
-
-.menu li {
-  margin: 20px 0;
-}
-
-.menu a {
-  text-decoration: none;
-  color: var(--deep-green);
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1400;
-}
-
-.menu-overlay.active {
-  display: block;
+  .container {
+    padding: 60px 10px;
+  }
 }
