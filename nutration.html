@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprouts Nutrition Guide - Health Benefits & Nutrients</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sprout Combo Packs with Mint Flowers</title>
     <style>
         * {
             margin: 0;
@@ -14,247 +13,301 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #e6f5e6 0%, #f0f8ff 100%);
+            color: #2c5f2d;
             padding: 20px;
-            background-attachment: fixed;
+            min-height: 100vh;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(120deg, #2c7744, #5aaf70);
-            color: white;
+            padding: 30px 0;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
         
         header::before {
-            content: "";
+            content: "🌱";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -20px;
+            left: -30px;
+            transform: rotate(-20deg);
+            z-index: -1;
         }
         
         h1 {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #2c5f2d;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
+            color: #5a8d5a;
             max-width: 700px;
             margin: 0 auto;
-            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .packs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .pack {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
         
-        .info-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease;
+        .pack:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        .info-box:hover {
-            transform: translateY(-5px);
+        .pack-header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            color: white;
         }
         
-        h2 {
-            color: #2c7744;
-            margin-bottom: 20px;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        h2 i {
-            background: #e8f5e9;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .pack-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            gap: 10px;
         }
         
-        .sprout-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        .pack-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
-        .sprout-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+        .pack-content {
+            padding: 20px;
+        }
+        
+        .ingredients {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .ingredient-tag {
+            background: #e8f5e9;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .mint-flower-tag {
+            background: #d1c4e9;
+        }
+        
+        .nutrition-label {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .nutrition-label th {
+            text-align: left;
+            padding: 8px 5px;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .nutrition-label td {
+            padding: 8px 5px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .nutrition-label tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .nutrition-label .value {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .benefits {
+            background: #f9fbe7;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.5;
             position: relative;
         }
         
-        .sprout-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-        
-        .card-header {
-            background: linear-gradient(120deg, #5aaf70, #2c7744);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .card-header h3 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
-        
-        .card-header p {
-            font-style: italic;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-        
-        .card-content {
-            padding: 25px;
-        }
-        
-        .nutrient-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .nutrient-list li {
-            padding: 10px 0;
-            border-bottom: 1px dashed #eee;
+        .benefits::before {
+            content: "💡";
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            font-size: 1.5rem;
+            background: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .nutrient-list li:last-child {
-            border-bottom: none;
+        .mint-flower-section {
+            background: linear-gradient(to right, #d1c4e9, #b39ddb);
+            color: #4a148c;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .benefit-list {
-            list-style: none;
-            margin-top: 20px;
+        .mint-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
         
-        .benefit-list li {
-            background: #f9fdfa;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border-left: 4px solid #5aaf70;
+        .mint-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         
-        .hindi {
-            font-family: 'Nirmala UI', 'Arial Unicode MS', sans-serif;
-            font-weight: bold;
-            color: #1a5d1a;
-        }
-        
-        .english {
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, rgba(92, 175, 112, 0.2), transparent);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        .nutrition-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
+        .mint-benefits, .mint-nutrition {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
             border-radius: 10px;
+        }
+        
+        .mint-benefits h3, .mint-nutrition h3 {
+            margin-bottom: 15px;
+            color: #6a1b9a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .mint-benefits ul {
+            padding-left: 20px;
+        }
+        
+        .mint-benefits li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .mint-benefits li::before {
+            content: "🌸";
+            position: absolute;
+            left: -25px;
+        }
+        
+        .surprise-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffeb3b, #ff9800);
+            border-radius: 15px;
+            color: #5d4037;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        .nutrition-table th {
-            background: #2c7744;
-            color: white;
-            text-align: left;
-            padding: 16px 20px;
-            font-weight: 600;
+        .surprise-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
         }
         
-        .nutrition-table td {
-            padding: 14px 20px;
-            border-bottom: 1px solid #eee;
+        .surprise-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
         
-        .nutrition-table tr:nth-child(even) {
-            background-color: #f8fff9;
+        .sprout-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
         }
         
-        .nutrition-table tr:last-child td {
-            border-bottom: none;
+        .sprout {
+            position: absolute;
+            bottom: 0;
+            font-size: 2rem;
+            animation: grow 4s infinite ease-in;
         }
         
-        .tag {
-            display: inline-block;
-            background: #e8f5e9;
-            color: #2c7744;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 3px;
-            font-weight: 500;
-        }
-        
-        .notes {
-            background: #fff9e6;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid #ffc107;
-            margin-top: 20px;
+        @keyframes grow {
+            0% { transform: translateY(100px) scale(0.5); opacity: 0; }
+            20% { transform: translateY(0) scale(1); opacity: 1; }
+            80% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
         }
         
         footer {
             text-align: center;
             padding: 30px;
-            color: #666;
             margin-top: 40px;
-            border-top: 1px solid #eee;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            color: #5a8d5a;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
         }
         
         @media (max-width: 768px) {
-            .sprout-grid {
+            .mint-content {
                 grid-template-columns: 1fr;
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
-            .subtitle {
-                font-size: 1.1rem;
+            .surprise-title {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -262,193 +315,257 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-seedling"></i> Sprouts Nutrition Guide</h1>
-            <p class="subtitle">Detailed nutritional information and health benefits of various sprouts in English and Hindi</p>
+            <h1>Sprout Combo Packs with Mint Flowers 🌸</h1>
+            <p class="subtitle">Each pack contains a perfect blend of organic sprouts enhanced with edible mint flowers for extra flavor, nutrition, and visual appeal!</p>
         </header>
         
-        <div class="info-box">
-            <h2><i class="fas fa-info-circle"></i> About Sprouts Nutrition</h2>
-            <p>Sprouts are nutritional powerhouses! The sprouting process increases nutrient bioavailability and enhances vitamin content. Sprouts are rich in enzymes, antioxidants, vitamins, minerals, and proteins that are essential for optimal health.</p>
-            
-            <div class="sprout-grid">
-                <div class="sprout-card">
-                    <div class="card-header">
-                        <h3>Moong</h3>
-                        <p>Mung Beans (मूंग)</p>
-                    </div>
-                    <div class="card-content">
-                        <p><strong>Nutrition per 100g:</strong></p>
-                        <ul class="nutrient-list">
-                            <li>Calories: <span class="highlight">30 kcal</span></li>
-                            <li>Protein: <span class="highlight">3g</span></li>
-                            <li>Carbs: <span class="highlight">6g</span></li>
-                            <li>Vitamins: <span class="tag">B1</span> <span class="tag">B2</span> <span class="tag">B6</span> <span class="tag">C</span> <span class="tag">K</span></li>
-                            <li>Minerals: <span class="tag">Iron</span> <span class="tag">Mg</span> <span class="tag">K</span></li>
-                        </ul>
-                        
-                        <p><strong>Health Benefits (फायदे):</strong></p>
-                        <ul class="benefit-list">
-                            <li><span class="hindi">डायबिटीज कंट्रोल</span> <span class="english">(Helps control diabetes)</span></li>
-                            <li><span class="hindi">पाचन सुधारे</span> <span class="english">(Improves digestion)</span></li>
-                            <li><span class="hindi">इम्यूनिटी बढ़ाए</span> <span class="english">(Boosts immunity)</span></li>
-                        </ul>
-                    </div>
+        <div class="packs-container">
+            <!-- Digestive Dynamo Pack -->
+            <div class="pack">
+                <div class="pack-header">
+                    <h2 class="pack-title">🌿 Digestive Dynamo Pack</h2>
+                    <p class="pack-description">For optimal gut health and digestion</p>
                 </div>
-                
-                <div class="sprout-card">
-                    <div class="card-header">
-                        <h3>Chana</h3>
-                        <p>Chickpeas (चना)</p>
+                <div class="pack-content">
+                    <div class="ingredients">
+                        <span class="ingredient-tag">🌾 Wheat Sprouts (40g)</span>
+                        <span class="ingredient-tag">🟢 Mung Sprouts (40g)</span>
+                        <span class="ingredient-tag">🌻 Sunflower Sprouts (20g)</span>
+                        <span class="ingredient-tag mint-flower-tag">🌸 Mint Flowers (10g)</span>
                     </div>
-                    <div class="card-content">
-                        <p><strong>Nutrition per 100g:</strong></p>
-                        <ul class="nutrient-list">
-                            <li>Calories: <span class="highlight">45 kcal</span></li>
-                            <li>Protein: <span class="highlight">4.5g</span></li>
-                            <li>Carbs: <span class="highlight">8g</span></li>
-                            <li>Vitamins: <span class="tag">B6</span> <span class="tag">B9</span> <span class="tag">C</span></li>
-                            <li>Minerals: <span class="tag">Iron</span> <span class="tag">Zinc</span> <span class="tag">Phosphorus</span></li>
-                        </ul>
-                        
-                        <p><strong>Health Benefits (फायदे):</strong></p>
-                        <ul class="benefit-list">
-                            <li><span class="hindi">हड्डियाँ मजबूत करे</span> <span class="english">(Strengthens bones)</span></li>
-                            <li><span class="hindi">एनर्जी बढ़ाए</span> <span class="english">(Increases energy)</span></li>
-                            <li><span class="hindi">खून की कमी दूर करे</span> <span class="english">(Prevents anemia)</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="sprout-card">
-                    <div class="card-header">
-                        <h3>Barley</h3>
-                        <p>(जौ)</p>
-                    </div>
-                    <div class="card-content">
-                        <p><strong>Nutrition per 100g:</strong></p>
-                        <ul class="nutrient-list">
-                            <li>Calories: <span class="highlight">35 kcal</span></li>
-                            <li>Protein: <span class="highlight">3.5g</span></li>
-                            <li>Carbs: <span class="highlight">7.5g</span></li>
-                            <li>Vitamins: <span class="tag">B1</span> <span class="tag">B3</span> <span class="tag">Choline</span></li>
-                            <li>Minerals: <span class="tag">Selenium</span> <span class="tag">Manganese</span></li>
-                        </ul>
-                        
-                        <p><strong>Health Benefits (फायदे):</strong></p>
-                        <ul class="benefit-list">
-                            <li><span class="hindi">वजन घटाए</span> <span class="english">(Aids weight loss)</span></li>
-                            <li><span class="hindi">कोलेस्ट्रॉल कम करे</span> <span class="english">(Reduces cholesterol)</span></li>
-                            <li><span class="hindi">हृदय स्वास्थ्य</span> <span class="english">(Good for heart health)</span></li>
-                        </ul>
+                    
+                    <table class="nutrition-label">
+                        <tr>
+                            <th colspan="2">Nutrition Facts (per 100g)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td class="value">85 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td class="value">6.8g (14% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td class="value">1.7g (2% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates</td>
+                            <td class="value">12.5g (5% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fiber</td>
+                            <td class="value">4.3g (15% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin C</td>
+                            <td class="value">8mg (9% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Folate (B9)</td>
+                            <td class="value">98µg (25% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin E</td>
+                            <td class="value">3.5mg (23% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Iron</td>
+                            <td class="value">2.1mg (12% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Magnesium</td>
+                            <td class="value">52mg (12% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Zinc</td>
+                            <td class="value">1.4mg (13% DV)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="benefits">
+                        <strong>Key Benefits:</strong> Wheat sprouts provide enzymes for digestion, mung sprouts offer fiber, sunflower sprouts add healthy fats, and mint flowers reduce bloating.
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="info-box">
-            <h2><i class="fas fa-wheat-alt"></i> Additional Sprouts Nutrition</h2>
             
-            <table class="nutrition-table">
-                <thead>
-                    <tr>
-                        <th>Sprout (अंकुर)</th>
-                        <th>Calories (kcal)</th>
-                        <th>Protein (g)</th>
-                        <th>Carbs (g)</th>
-                        <th>Key Vitamins</th>
-                        <th>Key Minerals</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Wheat (गेहूं)</td>
-                        <td>40</td>
-                        <td>4</td>
-                        <td>8.5</td>
-                        <td><span class="tag">B1</span> <span class="tag">B6</span> <span class="tag">E</span> <span class="tag">Folate</span></td>
-                        <td><span class="tag">Magnesium</span> <span class="tag">Zinc</span></td>
-                    </tr>
-                    <tr>
-                        <td>Matar (मटर)</td>
-                        <td>42</td>
-                        <td>4</td>
-                        <td>8</td>
-                        <td><span class="tag">A</span> <span class="tag">B1</span> <span class="tag">C</span> <span class="tag">K</span></td>
-                        <td><span class="tag">Iron</span> <span class="tag">Copper</span></td>
-                    </tr>
-                    <tr>
-                        <td>Alfalfa (अल्फाल्फा)</td>
-                        <td>23</td>
-                        <td>4</td>
-                        <td>2</td>
-                        <td><span class="tag">K</span> <span class="tag">C</span> <span class="tag">B Complex</span></td>
-                        <td><span class="tag">Calcium</span> <span class="tag">Iron</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="info-box">
-            <h2><i class="fas fa-vial"></i> Vitamin & Mineral Details</h2>
-            
-            <div class="sprout-grid">
-                <div class="sprout-card">
-                    <div class="card-header" style="background: linear-gradient(120deg, #4a7b9d, #2c5c8a);">
-                        <h3>Vitamins</h3>
-                        <p>Key Vitamins in Sprouts</p>
-                    </div>
-                    <div class="card-content">
-                        <ul class="benefit-list">
-                            <li><span class="hindi">विटामिन A</span> <span class="english">(Found in Matar): Good for eyesight and skin health</span></li>
-                            <li><span class="hindi">B-कॉम्प्लेक्स</span> <span class="english">(B1, B2, B6, Folate): Essential for energy production</span></li>
-                            <li><span class="hindi">विटामिन C</span> <span class="english">(Moong, Chana): Boosts immunity and iron absorption</span></li>
-                            <li><span class="hindi">विटामिन E</span> <span class="english">(Wheat): Powerful antioxidant</span></li>
-                            <li><span class="hindi">विटामिन K</span> <span class="english">(Moong, Matar): Important for blood clotting</span></li>
-                        </ul>
-                    </div>
+            <!-- Immunity Warrior Pack -->
+            <div class="pack">
+                <div class="pack-header">
+                    <h2 class="pack-title">🛡️ Immunity Warrior Pack</h2>
+                    <p class="pack-description">Boost your immune system naturally</p>
                 </div>
-                
-                <div class="sprout-card">
-                    <div class="card-header" style="background: linear-gradient(120deg, #9d7b4a, #8a5c2c);">
-                        <h3>Minerals</h3>
-                        <p>Essential Minerals in Sprouts</p>
+                <div class="pack-content">
+                    <div class="ingredients">
+                        <span class="ingredient-tag">🥦 Broccoli Sprouts (50g)</span>
+                        <span class="ingredient-tag">🌻 Sunflower Sprouts (30g)</span>
+                        <span class="ingredient-tag">🌾 Barley Sprouts (20g)</span>
+                        <span class="ingredient-tag mint-flower-tag">🌸 Mint Flowers (10g)</span>
                     </div>
-                    <div class="card-content">
-                        <ul class="benefit-list">
-                            <li><span class="hindi">आयरन</span> <span class="english">(Chana, Matar): Prevents anemia</span></li>
-                            <li><span class="hindi">मैग्नीशियम</span> <span class="english">(Moong, Wheat): Supports muscle and nerve function</span></li>
-                            <li><span class="hindi">जिंक</span> <span class="english">(Chana, Wheat): Boosts immune system</span></li>
-                            <li><span class="hindi">पोटैशियम</span> <span class="english">(Moong): Regulates blood pressure</span></li>
-                            <li><span class="hindi">सेलेनियम</span> <span class="english">(Barley): Powerful antioxidant</span></li>
-                        </ul>
+                    
+                    <table class="nutrition-label">
+                        <tr>
+                            <th colspan="2">Nutrition Facts (per 100g)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td class="value">75 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td class="value">6.0g (12% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td class="value">1.9g (2% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates</td>
+                            <td class="value">10.2g (4% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fiber</td>
+                            <td class="value">4.0g (14% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin C</td>
+                            <td class="value">62mg (69% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin K</td>
+                            <td class="value">78µg (65% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin E</td>
+                            <td class="value">6.8mg (45% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Selenium</td>
+                            <td class="value">22µg (40% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Potassium</td>
+                            <td class="value">280mg (6% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Iron</td>
+                            <td class="value">1.8mg (10% DV)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="benefits">
+                        <strong>Key Benefits:</strong> Broccoli sprouts are rich in sulforaphane, sunflower sprouts provide vitamin E and selenium, and mint flowers offer antibacterial properties.
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="info-box">
-            <h2><i class="fas fa-heartbeat"></i> Health Benefits Summary (फायदे)</h2>
             
-            <ul class="benefit-list" style="margin-top: 20px;">
-                <li><span class="hindi">पाचन तंत्र</span> <span class="english">(Digestive System): High in fiber which relieves constipation</span></li>
-                <li><span class="hindi">वजन घटाना</span> <span class="english">(Weight Loss): Low calorie, high protein content helps control hunger</span></li>
-                <li><span class="hindi">डायबिटीज</span> <span class="english">(Diabetes): Low glycemic index helps stabilize blood sugar</span></li>
-                <li><span class="hindi">दिल का स्वास्थ्य</span> <span class="english">(Heart Health): Reduces cholesterol (especially Barley, Moong)</span></li>
-                <li><span class="hindi">हड्डियों की मजबूती</span> <span class="english">(Bone Strength): Rich in calcium, magnesium and phosphorus</span></li>
-            </ul>
-            
-            <div class="notes">
-                <h3><i class="fas fa-lightbulb"></i> Important Notes:</h3>
-                <p>1. <strong>Sprouting increases nutrients:</strong> The sprouting process enhances vitamins (especially Vitamin C & B) and makes nutrients more bioavailable.</p>
-                <p>2. <strong>How to consume:</strong> Eat raw in salads, sandwiches, or lightly cooked in soups and stir-fries.</p>
-                <p>3. <strong>Safety:</strong> Pregnant women should consume well-cooked sprouts only.</p>
+            <!-- Protein Powerhouse Pack -->
+            <div class="pack">
+                <div class="pack-header">
+                    <h2 class="pack-title">💪 Protein Powerhouse Pack</h2>
+                    <p class="pack-description">Plant-based protein for energy and strength</p>
+                </div>
+                <div class="pack-content">
+                    <div class="ingredients">
+                        <span class="ingredient-tag">🟤 Chana Sprouts (50g)</span>
+                        <span class="ingredient-tag">🟢 Mung Sprouts (40g)</span>
+                        <span class="ingredient-tag mint-flower-tag">🌸 Mint Flowers (10g)</span>
+                    </div>
+                    
+                    <table class="nutrition-label">
+                        <tr>
+                            <th colspan="2">Nutrition Facts (per 100g)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td class="value">105 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td class="value">9.5g (19% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td class="value">2.0g (3% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates</td>
+                            <td class="value">15.8g (6% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fiber</td>
+                            <td class="value">5.1g (18% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Folate (B9)</td>
+                            <td class="value">220µg (55% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin B6</td>
+                            <td class="value">0.35mg (21% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin K</td>
+                            <td class="value">12µg (10% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Iron</td>
+                            <td class="value">3.2mg (18% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Magnesium</td>
+                            <td class="value">65mg (15% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Zinc</td>
+                            <td class="value">1.9mg (17% DV)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="benefits">
+                        <strong>Key Benefits:</strong> Chana (chickpea) and mung sprouts provide high-quality plant protein, while mint flowers enhance nutrient absorption.
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <footer>
-            <p>© 2023 Sprouts Nutrition Guide | Healthy Living Starts with Good Nutrition</p>
-            <p style="margin-top: 10px;"><i class="fas fa-seedling"></i> Grow Healthy, Eat Sprouts! <i class="fas fa-seedling"></i></p>
-        </footer>
-    </div>
-</body>
-</html>
+            
+            <!-- Detox & Glow Pack -->
+            <div class="pack">
+                <div class="pack-header">
+                    <h2 class="pack-title">✨ Detox & Glow Pack</h2>
+                    <p class="pack-description">Cleanse and nourish your skin from within</p>
+                </div>
+                <div class="pack-content">
+                    <div class="ingredients">
+                        <span class="ingredient-tag">🥦 Broccoli Sprouts (40g)</span>
+                        <span class="ingredient-tag">🟢 Mung Sprouts (40g)</span>
+                        <span class="ingredient-tag">🌾 Wheat Sprouts (20g)</span>
+                        <span class="ingredient-tag mint-flower-tag">🌸 Mint Flowers (10g)</span>
+                    </div>
+                    
+                    <table class="nutrition-label">
+                        <tr>
+                            <th colspan="2">Nutrition Facts (per 100g)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td class="value">80 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td class="value">6.5g (13% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td class="value">1.1g (1% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates</td>
+                            <td class="value">13.0g (5% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Fiber</td>
+                            <td class="value">4.6g (16% DV)</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin C</td>
