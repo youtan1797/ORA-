@@ -346,3 +346,13 @@ footer {
     padding: 60px 10px;
   }
 }
+.hero-section {
+  background-image: url('assets/bg-aetherial.jpg'); /* Adjust path based on your folder */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
