@@ -1,4 +1,4 @@
-// Smooth scroll behavior
+// 🌿 Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function(e) {
     e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Scroll-triggered reveal animation
+// 🔮 Scroll-triggered reveal animation
 const revealItems = document.querySelectorAll('.card, .vision-icons li');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -18,10 +18,9 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.1 });
-
 revealItems.forEach(item => observer.observe(item));
 
-// Ripple effect on CTA buttons
+// 💧 Ripple effect on CTA buttons
 document.querySelectorAll('.cta-button').forEach(button => {
   button.addEventListener('click', function (e) {
     const ripple = document.createElement('span');
@@ -30,22 +29,28 @@ document.querySelectorAll('.cta-button').forEach(button => {
     setTimeout(() => ripple.remove(), 500);
   });
 });
-// 🍔 Toggle Menu
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menu');
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
+// 🍔 Hamburger menu toggle with overlay
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.getElementById("menu");
+  const overlay = document.getElementById("menuOverlay");
 
-  // Optional: Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
+  if (toggle && menu && overlay) {
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      overlay.classList.toggle("active");
+      document.body.style.overflow = menu.classList.contains("active") ? "hidden" : "auto";
+    });
+
+    overlay.addEventListener("click", () => {
+      menu.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
 });
+
 // 🌱 Sprout animation
 function createSprout() {
   const animationContainer = document.getElementById('sproutAnimation');
@@ -63,12 +68,8 @@ function createSprout() {
   sprout.style.animationDuration = `${duration}s`;
 
   animationContainer.appendChild(sprout);
-
-  setTimeout(() => {
-    sprout.remove();
-  }, duration * 1000);
+  setTimeout(() => sprout.remove(), duration * 1000);
 }
-
 setInterval(createSprout, 800);
 
 // 🌕 Moonstone popup reveal
@@ -102,22 +103,3 @@ window.addEventListener('scroll', () => {
     headerBg.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
   }
 });
-
-// 🍔 Hamburger menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.getElementById('menu');
-const menuOverlay = document.getElementById('menuOverlay');
-
-if (menuToggle && menu && menuOverlay) {
-  menuToggle.addEventListener('click', () => {
-    menu.classList.add('active');
-    menuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
-
-  menuOverlay.addEventListener('click', () => {
-    menu.classList.remove('active');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  });
-}
