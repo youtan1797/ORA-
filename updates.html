@@ -1,13 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Updates - Pure Valley Mountain Sprouts</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changpa Kaizen | Leh Seabuckthorn Limited Edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --himalayan-blue: #1a4b8c;
+            --sunrise-orange: #ff6b35;
+            --sprout-green: #8a9a5b;
+            --mountain-gray: #4a5568;
+            --snow-white: #f8f9fa;
+            --golden-yellow: #f9a825;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--himalayan-blue), #2c6da5);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--golden-yellow);
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600557094843-1d3f0d2a6d1c?ixlib=rb-4.0.3') center/cover no-repeat;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--sunrise-orange);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sunrise-orange);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Product Showcase */
+        .product-showcase {
+            padding: 5rem 0;
+            background-color: var(--snow-white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--himalayan-blue);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--sunrise-orange);
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-highlight {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--himalayan-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .edition-badge {
+            display: inline-block;
+            background: var(--sunrise-orange);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            margin-bottom: 1.5rem;
+            color: var(--mountain-gray);
+        }
+        
+        .ingredients {
+            margin-bottom: 1.5rem;
+        }
+        
+        .ingredients h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--himalayan-blue);
+        }
+        
+        .ingredient-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .ingredient {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ingredient.seabuckthorn {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-color: var(--golden-yellow);
+            font-weight: 600;
+        }
+        
+        .ingredient i {
+            margin-right: 8px;
+            color: var(--sprout-green);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a4b8c 0%, #2c6da5 100%);
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--golden-yellow);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Handling Section */
+        .handling {
+            padding: 5rem 0;
+            background-color: var(--snow-white);
+        }
+        
+        .handling-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 5px solid var(--sunrise-orange);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .instructions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .instruction-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .instruction-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--himalayan-blue);
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #0d2a4a, #1a4b8c);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-links h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--sunrise-orange);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--sunrise-orange);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Updates</h1>
-  <p>This page will share the latest improvements, ideas, or seasonal notes on our Ladakhi sprouts.</p>
-</body>
-</html>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                Changpa Kaizen
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Seabuckthorn</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Limited Edition Winter Wellness</h1>
+            <p>Experience the Himalayan treasure - Fresh Leh Seabuckthorn Berries paired with our signature sprout blend</p>
+            <a href="#" class="btn">Discover the Himalayan Boost</a>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="container">
+            <h2 class="section-title">Our Limited Edition Box</h2>
+            <div class="product-container">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Changpa Kaizen Sprout Box with Seabuckthorn">
+                </div>
+                <div class="product-details">
+                    <div class="product-highlight">
+                        <div class="edition-badge">Winter Exclusive</div>
+                        <h3 class="product-name">Himalayan Wellness Sprout Box</h3>
+                        <p class="product-description">Experience the perfect fusion of nutrition and Himalayan goodness. Our signature sprout blend enhanced with fresh Leh Seabuckthorn berries for a winter wellness boost like no other.</p>
+                        
+                        <div class="ingredients">
+                            <h3>Ingredients</h3>
+                            <div class="ingredient-list">
+                                <div class="ingredient">
+                                    <i class="fas fa-seedling"></i> Chana Sprouts
+                                </div>
+                                <div class="ingredient">
+                                    <i class="fas fa-seedling"></i> Moong Sprouts
+                                </div>
+                                <div class="ingredient">
+                                    <i class="fas fa-seedling"></i> Barley Sprouts
+                                </div>
+                                <div class="ingredient seabuckthorn">
+                                    <i class="fas fa-star"></i> Fresh Seabuckthorn
+                                </div>
+                                <div class="ingredient">
+                                    <i class="fas fa-apple-alt"></i> Himalayan Salt
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>Handpicked from the pristine mountains of Leh, our fresh Seabuckthorn berries are packed with Vitamin C and antioxidants to boost your immunity during winter.</p>
+                        <a href="#" class="btn" style="margin-top: 20px;">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">The Power of Seabuckthorn</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 class="benefit-title">Immunity Boost</h3>
+                    <p>15x more Vitamin C than oranges to fight winter illnesses</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="benefit-title">Winter Skin Care</h3>
+                    <p>Omega-7 nourishes dry skin caused by cold weather</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="benefit-title">Heart Health</h3>
+                    <p>Rich in flavonoids that support cardiovascular function</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="benefit-title">Energy Boost</h3>
+                    <p>Natural energy source to combat winter lethargy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Handling Instructions -->
+    <section class="handling">
+        <div class="container">
+            <h2 class="section-title">Handling Instructions</h2>
+            <div class="handling-content">
+                <div class="warning-box">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Notice</h3>
+                    <p>Our fresh Seabuckthorn berries require special care to maintain their nutritional benefits and freshness. Please follow these instructions carefully.</p>
+                </div>
+                
+                <div class="instructions">
+                    <div class="instruction-card">
+                        <div class="instruction-number">1</div>
+                        <h3>Refrigerate Immediately</h3>
+                        <p>Store at
+...
